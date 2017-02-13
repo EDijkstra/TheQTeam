@@ -10,9 +10,9 @@ and open the template in the editor.
         <title></title>
     </head>
     <body>
-
         <?php
-
+        
+        //Test Text
         function studententen_dropdown() {
 
             $servername = "10.25.222.12";
