@@ -18,7 +18,7 @@ and open the template in the editor.
             $servername = "10.25.222.12";
             $username = "slb";
             $password = "SjaakAfhaal000";
-            //$dbname = "myDB";
+            $dbname = "myDB";
 
 // Create connection
             $conn = new mysqli($servername, $username, $password, $dbname);
@@ -39,13 +39,6 @@ and open the template in the editor.
                 echo "0 results";
             }
             $conn->close();
-        }
-
-        $idiot = true;
-
-        if ($idiot === true) {
-            echo "noot";
-            echo "toot";
         }
         ?>
     </body>
