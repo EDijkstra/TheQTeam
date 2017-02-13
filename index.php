@@ -16,6 +16,7 @@ and open the template in the editor.
          if ($idiot === true)
          {
              echo "noot";
+             echo "toot";
          }
         ?>
     </body>
