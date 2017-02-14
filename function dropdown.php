@@ -7,33 +7,23 @@ and open the template in the editor.
 -->
 
 <?php
-
-//Test Text
-function studententen_dropdown() {
-
-    $servername = "10.25.222.12";
-    $username = "slb";
-    $password = "SjaakAfhaal000";
-    $dbname = "myDB";
+// Login information
+$servername = "localhost";
+$username = "username";
+$password = "password";
 
 // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password);
+
 // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
 
-    $sql = "SELECT id, firstname, lastname FROM MyGuests";
-    $result = $conn->query($sql);
+$dg = new C_DataGrid("ov", "voornaam", "tussen", "achternaam", "puntenkaarid", "klas", "adres", "postcode", "woonplaats", "mobiel", "telefoon", "groep", "carrouselid", "subid", "opmerking"); 
 
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = $result->fetch_assoc()) {
-            echo "id: " . $row["id"] . " - Name: " . $row["firstname"] . " " . $row["lastname"] . "<br>";
-        }
-    } else {
-        echo "0 results";
-    }
-    $conn->close();
-}
+
+
 ?>
+
