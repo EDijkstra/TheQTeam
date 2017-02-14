@@ -1,5 +1,5 @@
 <?php
-$sHost = '10.25.222.12:22';
+$sHost = 'localhost';
 $sUser = 'slb';
 $sPass = 'SjaakAfhaak000';
 
