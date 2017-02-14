@@ -63,7 +63,7 @@
                             <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="modal_exporteren"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
 
                             <!--modal +gesprek-->
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="modal_gesprek" aria-hidden="true">
+                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="modal_gesprek." aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
 <!--                            button +gesprek-->
-                            <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="modal_gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
+                            <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="modal_gesprek."><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
                             </p>
                         </div>
                     </div>
