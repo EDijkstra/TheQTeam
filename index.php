@@ -18,72 +18,71 @@
 
     </head>
     <body>
-
-
+        <!--        modal voor export button-->
+        <div class="modal fade" id="Export" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        modal voor de gespreks button-->
+        <div class="modal fade" id="Gesprek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!--                        tekst modal body-->
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        container size-->
         <div class="container-fluid">
             <div class="navbar navbar-default">
 
             </div>
 
             <div class="row">
-                <!--                studenten panel-->
+                <!--            studenten panel-->
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading"><dt>Studenten</dt></div>
                         <div class="panel-body">
                             <p>
-<!--                                dropdown box -->
                                 <select class="selectpicker" data-live-search="true" >
-                                    <!--hier moet de methode voor het dropdownmenu worden opgeroepen/////////-->
+                                    <!--                                    hier moet de methode voor het dropdownmenu worden opgeroepen-->
                                     <option value="">Select...</option>
                                     <option value="M">Male</option>
                                     <option value="F">Female</option>
-                                </select>
-                                <!-- Modal_exporteren -->
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="modal_exporteren" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--button exporteren--> 
-                            <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="modal_exporteren"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
-
-                            <!--modal +gesprek-->
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="modal_gesprek." aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            ...
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-<!--                            button +gesprek-->
-                            <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="modal_gesprek."><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
+                                </select>          
+        
+                                <!--export button-->
+                                <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="#Export"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
+                                <!--gespeks button-->
+                                <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="#Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
                             </p>
                         </div>
                     </div>
