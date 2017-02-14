@@ -13,37 +13,61 @@
         <!-- for Select dropdown menu-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-<!--        font awsome script-->
+        <!--        font awsome script-->
         <script src="https://use.fontawesome.com/95866f8d45.js"></script>
-        
+
     </head>
     <body>
-        
+
+
         <div class="container-fluid">
             <div class="navbar navbar-default">
 
             </div>
 
             <div class="row">
-<!--                studenten panel-->
+                <!--                studenten panel-->
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading"><dt>Studenten</dt></div>
                         <div class="panel-body">
                             <p>
+<!--                                dropdown box -->
                                 <select class="selectpicker" data-live-search="true" >
-<!--                                    hier moet de methode voor het dropdownmenu worden opgeroepen-->
+                                    <!--hier moet de methode voor het dropdownmenu worden opgeroepen/////////-->
                                     <option value="">Select...</option>
                                     <option value="M">Male</option>
                                     <option value="F">Female</option>
                                 </select>
-                                <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="#exampleModalLong"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
-                                <button type="button" class="btn btn-default" name="Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
+                                <!-- Modal_exporteren -->
+                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="modal_exporteren" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            ...
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="modal_exporteren"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
+
+
+                            <button type="button" class="btn btn-default" name="Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
                             </p>
                         </div>
                     </div>
                 </div>
-<!--                colom aankomende gesprekken-->
+                <!--                colom aankomende gesprekken-->
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">Aankomende gesprekken (laatste 5)</div>
@@ -54,8 +78,8 @@
                             <div class="col-md-4">
                                 <dt>Naam</dt>
                             </div>
-                             <div class="col-md-6">
-                                 <dt>Laatst gesproken</dt>
+                            <div class="col-md-6">
+                                <dt>Laatst gesproken</dt>
                             </div>
 
                         </div>
@@ -96,7 +120,7 @@
                         <dt>Foto</dt>
                     </div>
                     <div class="col-md-12">
-                        <!--                        hier moet de methode voor alle informatie van iedereen komen -->
+                        <!-- hier moet de methode voor alle informatie van iedereen komen -->
                     </div>
                 </div>
             </div>
