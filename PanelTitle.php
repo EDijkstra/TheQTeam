@@ -8,7 +8,7 @@ and open the template in the editor.
 
 <?php
 // Login Informatie
-$servername = "10.25.222.12";
+$servername = "localhost";
 $username = "slb";
 $password = "SjaakAfhaak000";
 
