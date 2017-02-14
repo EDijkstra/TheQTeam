@@ -7,7 +7,7 @@ and open the template in the editor.
 -->
 
 <?php
-// Login information
+// Login Informatie
 $servername = "10.25.222.12";
 $username = "slb";
 $password = "SjaakAfhaak000";
@@ -21,7 +21,9 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$dg = new C_DataGrid("ov", "voornaam", "tussen", "achternaam", "puntenkaarid", "klas", "adres", "postcode", "woonplaats", "mobiel", "telefoon", "groep", "carrouselid", "subid", "opmerking"); 
+
+// Query 
+$query = 'SELECT ov, voornaam, tussen, achternaam, puntenkaartid, klas, adres, postcode, woonplaats, mobiel, telefoon, groep, carrouselid, subid, opmerking';
 
 
 
