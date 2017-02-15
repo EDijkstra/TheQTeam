@@ -11,9 +11,10 @@ and open the template in the editor.
 $servername = "localhost";
 $username = "slb";
 $password = "SjaakAfhaak000";
+$dbname = "slb";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
@@ -21,11 +22,10 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
+// DataGrid
+$dg = new C_DataGrid("SELECT * FROM name", "ov", "voornaam", "tussen", "achternaam", "puntenkaartid", "klas", "adres", "postcode", "woonplaats", "mobiel", "telefoon", "groep", "carrouselid", "subid", "opmerking" ); 
 
 // Query 
-$query = 'SELECT ov, voornaam, tussen, achternaam, puntenkaartid, klas, adres, postcode, woonplaats, mobiel, telefoon, groep, carrouselid, subid, opmerking';
-
-
-
+// $query = 'SELECT ov, voornaam, tussen, achternaam, puntenkaartid, klas, adres, postcode, woonplaats, mobiel, telefoon, groep, carrouselid, subid, opmerking';
 ?>
 
