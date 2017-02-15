@@ -30,6 +30,7 @@
                     </div>
                     <div class="modal-body">
                         ...
+                        <?php echo $_GET["dropdown_studenten"]; ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -71,19 +72,18 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><dt>Studenten</dt></div>
                         <div class="panel-body">
-                            <p>
-                                <select class="selectpicker" data-live-search="true" >
+                           
+                                <select class="selectpicker show-tick"  data-live-search="true" name="dropdown_studenten" >"
                                     <!--                                    hier moet de methode voor het dropdownmenu worden opgeroepen-->
                                     <option value="">Select...</option>
                                     <option value="M">Male</option>
                                     <option value="F">Female</option>
-                                </select>          
-        
+                                </select>       
                                 <!--export button-->
                                 <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="#Export"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
                                 <!--gespeks button-->
                                 <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="#Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
-                            </p>
+                             
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,34 @@
                         <dt>Foto</dt>
                     </div>
                     <div class="col-md-12">
-                        <!-- hier moet de methode voor alle informatie van iedereen komen -->
+                        <!-- tijdelijk als tusenbarriere -->
+                    </div>
+                    <div class="col-md-1">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-1">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-2">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-1">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-2">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-1">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-2">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-1">
+                        <dt></dt>
+                    </div>
+                    <div class="col-md-1">
+                        <dt></dt>
                     </div>
                 </div>
             </div>
