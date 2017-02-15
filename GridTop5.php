@@ -1,7 +1,7 @@
 <?php
 $sHost = 'localhost';
-$sUser = 'slb';
-$sPass = 'SjaakAfhaak000';
+$sUser = '';
+$sPass = '';
 
 $conStr = mysqli_connect($sHost, $sUser, $sPass);
 
@@ -11,4 +11,5 @@ if (!( $conStr )) {
         die('Connected to Server, but Failed to Connect to Database - #' . mysqli_connect_errno() . ': ' . mysqli_connect_errno());
     }
 }
+else{echo " It works!!!";}
 $sql = '';
