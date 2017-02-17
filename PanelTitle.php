@@ -23,7 +23,7 @@ if ($conn->connect_error) {
 echo "Connected successfully";
 
 // DataGrid
-$dg = new C_DataGrid("SELECT * FROM name", "ov", "voornaam", "tussen", "achternaam", "puntenkaartid", "klas", "adres", "postcode", "woonplaats", "mobiel", "telefoon", "groep", "carrouselid", "subid", "opmerking" ); 
+$dg = new C_DataGrid("SELECT * FROM StudentInfo", "ov", "voornaam", "tussen", "achternaam", "puntenkaartid", "klas", "adres", "postcode", "woonplaats", "mobiel", "telefoon", "groep", "carrouselid", "subid", "opmerking" ); 
 
 // Query 
 // $query = 'SELECT ov, voornaam, tussen, achternaam, puntenkaartid, klas, adres, postcode, woonplaats, mobiel, telefoon, groep, carrouselid, subid, opmerking';
