@@ -1,3 +1,29 @@
+<?php
+$sHost = 'localhost';
+$sUser = 'root';
+$sPass = '';
+$sDB = 'slb';
+
+//create connection
+$conStr = mysqli_connect($sHost, $sUser, $sPass, $sDB);
+
+// check connection
+if (!( $conStr )) {
+    die('Failed to connect to MySQL Database Server - #' . mysqli_connect_errno() . ': ' . mysqli_Connect_error());
+    if (!mysqli_select_db('slb')) {
+        die('Connected to Server, but Failed to Connect to Database - #' . mysqli_connect_errno() . ': ' . mysqli_connect_errno());
+    }
+} else {
+    
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['current_year'])) {
+        //Should really validate/sanitise data here
+        $currentYear = $_POST['current_year'];
+    }
+}
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -72,39 +98,99 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><dt>Studenten</dt></div>
                         <div class="panel-body">
-                           
-                                <select class="selectpicker show-tick"  data-live-search="true" name="dropdown_studenten" >"
-                                    <!--                                    hier moet de methode voor het dropdownmenu worden opgeroepen-->
-                                    <option value="">Select...</option>
-                                    <option value="M">Male</option>
-                                    <option value="F">Female</option>
-                                </select>       
+                            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                            <script type="text/javascript">
+                                $(document).ready(function () {
+                                    $('#Sel').change(function () {
+                                        //get the OV from the selected student
+                                        var SelectedValue = $(this).val();
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "index.php",
+                                            success: function (data) {
+                                                alert('This was sent back: ' + SelectedValue);
+                                                $("#Sel").html(data);
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+                            <form action="index.php" method='post'>
+                                <?php
+                                $sqlddl = 'SELECT OV, Voornaam, Tussen, Achternaam FROM studentinfo';
+                                $resultddl = $conStr->query($sqlddl);
+                                echo'<select id = "Sel" class="selectpicker show-tick"  data-live-search="true" name="Select_Student" onchange="this.form.submit();">';
+                                echo '<option value="default">Select...</option>';
+                                while ($row = $resultddl->fetch_assoc()) {
+                                    unset($OV, $Voornaam, $Tussen, $Achternaam);
+                                    $OV = $row['OV'];
+                                    $Voornaam = $row['Voornaam'];
+                                    $Tussen = $row['Tussen'];
+                                    $Achternaam = $row['Achternaam'];
+                                    echo '<option value="' . $OV . '">' . $Voornaam . " " . $Tussen . " " . $Achternaam . '</option>';
+                                }
+                                echo'</select>';
+
+
+                                $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+                                //temp
+                                echo 'here is your stuff: ' . $SelectedValue;
+                                ?>
                                 <!--export button-->
                                 <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="#Export"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
                                 <!--gespeks button-->
                                 <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="#Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
-                             
+                            </form>
                         </div>
                     </div>
                 </div>
-                <!--                colom aankomende gesprekken-->
                 <div class="col-md-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">Aankomende gesprekken (laatste 5)</div>
                         <div class="panel-body">
-                            <div class="col-md-2">
-                                <dt>#</dt>
-                            </div>
-                            <div class="col-md-4">
+
+                            <div class="col-md-6">
                                 <dt>Naam</dt>
                             </div>
                             <div class="col-md-6">
-                                <dt>Laatst gesproken</dt>
+                                <dt>Datum</dt>
                             </div>
+                            <br>
+                            <?php
+//TO DO  -  put DB name in the sql injection
+//Specifieke columns opvragen uit DB
+                            $sqlT5 = 'SELECT 
+                            studentinfo.Voornaam, 
+                            studentinfo.Tussen, 
+                            studentinfo.Achternaam, 
+                            afspraken.ID, 
+                            afspraken.Datum 
+                            FROM 
+                            studentinfo 
+                            INNER JOIN afspraken ON afspraken.OV = studentInfo.OV 
+                            ORDER BY 
+                            datum ASC 
+                            LIMIT 
+                            5;';
 
+                            $result = $conStr->query($sqlT5);
+
+                            if ($result && $result->num_rows > 0) {
+                                //output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                    echo '<div class="col-md-6">' .
+                                    $row["Voornaam"] . " " .
+                                    $row["Tussen"] .
+                                    $row["Achternaam"] . '</div><div class="col-md-6">' .
+                                    $row["Datum"] . "</div>";
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            ?>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </div>
         <div class="container-fluid">
@@ -142,33 +228,29 @@
                     <div class="col-md-12">
                         <!-- tijdelijk als tusenbarriere -->
                     </div>
-                    <div class="col-md-1">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-1">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-2">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-1">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-2">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-1">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-2">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-1">
-                        <dt></dt>
-                    </div>
-                    <div class="col-md-1">
-                        <dt></dt>
-                    </div>
+                    <?php
+                    // als er niks is geselecteerd willen we dat gewoon alles is geselecteerd                    
+                    //kijk of er iets is geselecteerd
+                    if ($SelectedValue != "") {
+                        //sorteer op ov nummer
+                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas FROM studentinfo WHERE OV =" . $SelectedValue;
+                    } else {
+                        //geen sorteren gewoon alles selecteren
+                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas FROM studentinfo";
+                    }
+                    $resultPanelTitle = $conStr->query($sqlPaneltitle);
+                    if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
+
+                        while ($row = $resultPanelTitle->fetch_assoc()) {
+                            echo '<div class="col-md-1">' . $row["ID"] . "</div>" .
+                            '<div class="col-md-1">' . $row["OV"] . "</div>" .
+                            '<div class="col-md-2">' . $row["Voornaam"] . "</div>" .
+                            '<div class="col-md-1">' . $row["Tussen"] . "</div>" .
+                            '<div class="col-md-2">' . $row["Achternaam"] . "</div>" .
+                            '<div class="col-md-1">' . $row["Klas"] . "</div>" . "<br>";
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
