@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <div class="modal-body">
                         ...
-                        <?php echo $_GET["dropdown_studenten"]; ?>
+                        <a>stuff ;o</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -119,10 +119,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <?php
                                 $sqlddl = 'SELECT OV, Voornaam, Tussen, Achternaam FROM studentinfo';
                                 $resultddl = $conStr->query($sqlddl);
+                                //set ddl neer ;)
                                 echo'<select id = "Sel" class="selectpicker show-tick"  data-live-search="true" name="Select_Student" onchange="this.form.submit();">';
                                 echo '<option value="default">Select...</option>';
                                 while ($row = $resultddl->fetch_assoc()) {
-                                    unset($OV, $Voornaam, $Tussen, $Achternaam);
+                                    unset($OV, $Voornaam, $Tussen, $Achternaaam);
                                     $OV = $row['OV'];
                                     $Voornaam = $row['Voornaam'];
                                     $Tussen = $row['Tussen'];
@@ -216,10 +217,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="col-md-1">
                         <dt>Jaar</dt>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <dt>Voortgang</dt>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <dt>Email</dt>
                     </div>
                     <div class="col-md-1">
@@ -233,7 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     //kijk of er iets is geselecteerd
                     if ($SelectedValue != "") {
                         //sorteer op ov nummer
-                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas FROM studentinfo WHERE OV =" . $SelectedValue;
+                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
                     } else {
                         //geen sorteren gewoon alles selecteren
                         $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
@@ -248,8 +249,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             '<div class="col-md-1">' . $row["Tussen"] . "</div>" .
                             '<div class="col-md-2">' . $row["Achternaam"] . "</div>" .
                             '<div class="col-md-1">' . $row["Klas"] . "</div>" . 
-                            '<div class="col-md-2"> </div>'.
-                            '<div class="col-md-1">' . $row["Email"] . '</div>' .
+                            '<div class="col-md-1"> </div>'.
+                            '<div class="col-md-2">' . $row["Email"] . '</div>' .
                                     "<br>";
                         }
                     }
