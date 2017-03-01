@@ -26,26 +26,12 @@ if (isset($_POST['submit'])) {
     // Putting data from form into variables to be manipulated
 
     $SelectedValue = '137863';
-    $Datum = date_default_timezone_get();
-    $Opmerking = INPUT_POST['formPostDescription'];
+    $Datum = date("Y-m-d h:i:s");
+    $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
     
+    $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
+            . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
     
-    
-    
-
-//    $conn = mysql_connect("$sHost", "$sUser", "$sPass") or die("Can't connect");
-//    mysql_select_db("$sDB", $conn);
-//    $Opmerking = "halo dit is een test";
-    
-
-    // Getting the form variables and then placing their values into the MySQL table
-    $sql = "INSERT INTO afspraken (OV, Datum, Opmerking) "
-            . "VALUES ($SelectedValue, $Datum, $Opmerking')";
-    echo $sql;
+    $result = $conStr->query($sqlExport);
 }
-//if ($conn->query($sql) === TRUE) {
-//    echo "New record created successfully";
-//} else {
-//    echo "Error: " . $sql . "<br>" . $conn->error;
-//}
-?>
+
