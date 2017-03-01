@@ -236,7 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas FROM studentinfo WHERE OV =" . $SelectedValue;
                     } else {
                         //geen sorteren gewoon alles selecteren
-                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas FROM studentinfo";
+                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
                     }
                     $resultPanelTitle = $conStr->query($sqlPaneltitle);
                     if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
@@ -247,7 +247,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             '<div class="col-md-2">' . $row["Voornaam"] . "</div>" .
                             '<div class="col-md-1">' . $row["Tussen"] . "</div>" .
                             '<div class="col-md-2">' . $row["Achternaam"] . "</div>" .
-                            '<div class="col-md-1">' . $row["Klas"] . "</div>" . "<br>";
+                            '<div class="col-md-1">' . $row["Klas"] . "</div>" . 
+                            '<div class="col-md-2"> </div>'.
+                            '<div class="col-md-1">' . $row["Email"] . '</div>' .
+                                    "<br>";
                         }
                     }
                     ?>
