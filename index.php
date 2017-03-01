@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Gesprek toevoegen</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -122,6 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 //set ddl neer ;)
                                 echo'<select id = "Sel" class="selectpicker show-tick"  data-live-search="true" name="Select_Student" onchange="this.form.submit();">';
                                 echo '<option value="default">Select...</option>';
+                                echo '<option value="all">all</option>';
                                 while ($row = $resultddl->fetch_assoc()) {
                                     unset($OV, $Voornaam, $Tussen, $Achternaaam);
                                     $OV = $row['OV'];
@@ -164,11 +165,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             studentinfo.Voornaam, 
                             studentinfo.Tussen, 
                             studentinfo.Achternaam, 
-                            afspraken.ID, 
-                            afspraken.Datum 
+                            gesprekken.ID, 
+                            gesprekken.Datum 
                             FROM 
                             studentinfo 
-                            INNER JOIN afspraken ON afspraken.OV = studentInfo.OV 
+                            INNER JOIN gesprekken ON gesprekken.OV = studentInfo.OV 
                             ORDER BY 
                             datum ASC 
                             LIMIT 
@@ -232,12 +233,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php
                     // als er niks is geselecteerd willen we dat gewoon alles is geselecteerd                    
                     //kijk of er iets is geselecteerd
-                    if ($SelectedValue != "") {
-                        //sorteer op ov nummer
-                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
-                    } else {
+                    if ($SelectedValue == ""||$SelectedValue == 'all') {
                         //geen sorteren gewoon alles selecteren
                         $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
+                    } else if($SelectedValue != ""){
+                         //sorteer op ov nummer
+                        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
                     }
                     $resultPanelTitle = $conStr->query($sqlPaneltitle);
                     if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
@@ -251,6 +252,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             '<div class="col-md-1">' . $row["Klas"] . "</div>" . 
                             '<div class="col-md-1"> </div>'.
                             '<div class="col-md-2">' . $row["Email"] . '</div>' .
+                            '<div class="col-md-1"></div>' . 
+                            '<div class="col-md-12"></div>' .
                                     "<br>";
                         }
                     }
