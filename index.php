@@ -55,12 +55,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
-                        <a>stuff ;o</a>
+                        <form method="post" id="text" >
+                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
+                        </form>
+                        <?php
+                        if (isset($_POST['submit'])) {
+                            // Putting data from form into variables to be manipulated
+                            $Datum = date("Y-m-d h:i:s");
+                            $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
+                            
+                            //check if there is a student selected
+                            if ($SelectedValue == "" || $SelectedValue == "all") {
+                                echo'Please select a student';
+                            }else{
+                                 $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
+                                    . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
+
+                            $result = $conStr->query($sqlExport);
+                            }
+                        }
+                        ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary" name="submit" id="submit">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -76,8 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!--                        tekst modal body-->
-                        ...
+                        <!--Model gesprek + -->
+                        ... over here yo
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -233,11 +251,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <?php
                     // als er niks is geselecteerd willen we dat gewoon alles is geselecteerd                    
                     //kijk of er iets is geselecteerd
-                    if ($SelectedValue == ""||$SelectedValue == 'all') {
+                    if ($SelectedValue == "" || $SelectedValue == 'all') {
                         //geen sorteren gewoon alles selecteren
                         $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
-                    } else if($SelectedValue != ""){
-                         //sorteer op ov nummer
+                    } else if ($SelectedValue != "") {
+                        //sorteer op ov nummer
                         $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
                     }
                     $resultPanelTitle = $conStr->query($sqlPaneltitle);
@@ -249,12 +267,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             '<div class="col-md-2">' . $row["Voornaam"] . "</div>" .
                             '<div class="col-md-1">' . $row["Tussen"] . "</div>" .
                             '<div class="col-md-2">' . $row["Achternaam"] . "</div>" .
-                            '<div class="col-md-1">' . $row["Klas"] . "</div>" . 
-                            '<div class="col-md-1"> </div>'.
+                            '<div class="col-md-1">' . $row["Klas"] . "</div>" .
+                            '<div class="col-md-1"> </div>' .
                             '<div class="col-md-2">' . $row["Email"] . '</div>' .
-                            '<div class="col-md-1"></div>' . 
+                            '<div class="col-md-1"></div>' .
                             '<div class="col-md-12"></div>' .
-                                    "<br>";
+                            "<br>";
                         }
                     }
                     ?>
