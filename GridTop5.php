@@ -14,33 +14,87 @@ if (!( $conStr )) {
         die('Connected to Server, but Failed to Connect to Database - #' . mysqli_connect_errno() . ': ' . mysqli_connect_errno());
     }
 }
-else{echo " It works!!!". '<br>';}
-//TO DO  -  put DB name in the sql injection
-//Specifieke columns opvragen uit DB
-$sql = 'SELECT 
-	studentinfo.Voornaam, 
-	studentinfo.Tussen, 
-	studentinfo.Achternaam, 
-	afspraken.ID, 
-	afspraken.Datum 
-        FROM 
-	studentinfo 
-	INNER JOIN afspraken ON afspraken.OV = studentInfo.OV 
-        ORDER BY 
-	datum ASC 
-        LIMIT 
-	5;';
+?>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css.css">
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    </head>
+<table id="example4u" class="display" cellspacing="0" width="100%">
+    <thead>
+    <body>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                OV
+            </th>
+            <th>
+                Voornaam
+            </th>
+            <th>
+                Tussen
+            </th>
+            <th>
+                Achternaam
+            </th>
+            <th>
+                Jaar
+            </th>
+            <th>
+                Voortgang
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Foto
+            </th>
+        </tr>
+    </thead>
+    <tfoot>
 
-$result = $conStr->query($sql);
+    </tfoot>
+    <tbody>
+        <!--                        voeg nu voor elke row de data in-->
 
-if($result && $result->num_rows > 0){
-    //output data of each row
-    while($row = $result->fetch_assoc()){
-        echo "Voornaam: " . $row["Voornaam"].
-             " " . $row["Tussen"].
-             " " . $row["Achternaam"].
-             " - Datum: " . $row["Datum"]. "<br>";
-    }
-}else{
-    echo "0 results";
-}
+        <?php
+        // als er niks is geselecteerd willen we dat gewoon alles is geselecteerd                    
+        //kijk of er iets is geselecteerd
+        if ($SelectedValue == "" || $SelectedValue == 'all') {
+            //geen sorteren gewoon alles selecteren
+            $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
+        } else if ($SelectedValue != "") {
+            //sorteer op ov nummer
+            $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
+        }
+        $resultPanelTitle = $conStr->query($sqlPaneltitle);
+        if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
+
+            while ($row = $resultPanelTitle->fetch_assoc()) {
+                echo '<tr>' .
+                '<td>' . $row["ID"] . "</td>" .
+                '<td>' . $row["OV"] . "</td>" .
+                '<td>' . $row["Voornaam"] . "</td>" .
+                '<td>' . $row["Tussen"] . "</td>" .
+                '<td>' . $row["Achternaam"] . "</td>" .
+                '<td>' . $row["Klas"] . "</td>" .
+                '<td></td>' .
+                '<td>' . $row["Email"] . '</td>' .
+                '<td></td>' .
+                '<td></td>' .
+                '</tr>';
+            }
+        }
+        ?>
+    </tbody>
+</table>
+<script>
+    $(document).ready(function () {
+        $('#example4u').DataTable();
+    });
+</script>
+
+</body>
+</html>
