@@ -83,8 +83,9 @@ function GetTop5() {
     }
 }
 function Exporteren () {
-    global $SelectedValue;
+    //global $SelectedValue;
     global $conStr;
+     $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
     
     if ($SelectedValue != "") {
     //sorteer op ov nummer
@@ -100,7 +101,7 @@ function Exporteren () {
             
             echo "" . $row["Datum"] . "<br>" .
             "" . $row["Opmerking"] . 
-            "<br><br>";
+            "<hr><br>";
         }
     } else {
         echo "0 results";
@@ -159,6 +160,29 @@ function PopulateDDL() {
 
     </head>
     <body>
+        <!--        modal voor afsparaken button-->
+        <div class="modal fade" id="Afspraken" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Afspraken</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <?php
+                        echo "test afspraken modal";
+                        ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" name="submit" id="submit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--        modal voor export button-->
         <div class="modal fade" id="Export" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -170,9 +194,6 @@ function PopulateDDL() {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" id="text" >
-                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
-                        </form>
                         <?php
                         Exporteren ();
                         ?>
@@ -196,6 +217,9 @@ function PopulateDDL() {
                     </div>
                     <div class="modal-body">
                         <!--Model gesprek + -->
+                        <form method="post" id="text" >
+                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
+                        </form>
                         ... over here yo
                     </div>
                     <div class="modal-footer">
@@ -227,6 +251,8 @@ function PopulateDDL() {
                                 <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="#Export"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
                                 <!--gespeks button-->
                                 <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="#Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
+                            <!--Afspraken button-->
+                                <button type="button" class="btn btn-default" name="Afspraken" data-toggle="modal" data-target="#Afspraken"><i class="fa fa-sitemap" aria-hidden="true"></i>  Afspraken</button>
                             </form>
                         </div>
                     </div>
