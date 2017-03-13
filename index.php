@@ -109,6 +109,22 @@ function Exporteren() {
         }
     }
 }
+function Gesprek () {
+     if (isset($_POST['submit'])) {
+                                // Putting data from form into variables to be manipulated
+                                global $SelectedValue;
+                                global $conStr;
+                                $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+                                $Datum = date("Y-m-d h:i:s");
+                                $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
+
+                                $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
+                                        . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
+
+                                $result = $conStr->query($sqlExport);
+                            }
+}
+
 
 function PopulateDDL() {
     global $SelectedValue;
@@ -238,19 +254,7 @@ function PopulateDDL() {
                             <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
 
                             <?php
-                            if (isset($_POST['submit'])) {
-                                // Putting data from form into variables to be manipulated
-                                global $SelectedValue;
-                                global $conStr;
-                                $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
-                                $Datum = date("Y-m-d h:i:s");
-                                $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
-
-                                $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
-                                        . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
-
-                                $result = $conStr->query($sqlExport);
-                            }
+                            Gesprek ()
                             ?>
 
                             </div>
