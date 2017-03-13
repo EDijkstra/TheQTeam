@@ -82,32 +82,32 @@ function GetTop5() {
         echo "0 results";
     }
 }
-function Exporteren () {
+
+function Exporteren() {
     //global $SelectedValue;
     global $conStr;
-     $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
-    
+    $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+
     if ($SelectedValue != "") {
-    //sorteer op ov nummer
-    $sqlExporteren = "SELECT ID, OV, Datum, Opmerking FROM afspraken WHERE OV =" . $SelectedValue;
+        //sorteer op ov nummer
+        $sqlExporteren = "SELECT ID, OV, Datum, Opmerking FROM afspraken WHERE OV =" . $SelectedValue;
 
-    $resultExporteren = $conStr->query($sqlExporteren);
+        $resultExporteren = $conStr->query($sqlExporteren);
 
-    if ($resultExporteren && $resultExporteren->num_rows > 0) {
-        //output data of each row
-       
-        
-        while ($row = $resultExporteren->fetch_assoc()) {
-            
-            echo "" . $row["Datum"] . "<br>" .
-            "" . $row["Opmerking"] . 
-            "<hr><br>";
+        if ($resultExporteren && $resultExporteren->num_rows > 0) {
+            //output data of each row
+
+
+            while ($row = $resultExporteren->fetch_assoc()) {
+
+                echo "" . $row["Datum"] . "<br>" .
+                "" . $row["Opmerking"] .
+                "<hr><br>";
+            }
+        } else {
+            echo "0 results";
         }
-    } else {
-        echo "0 results";
-} }  
-    
-    
+    }
 }
 
 function PopulateDDL() {
@@ -171,10 +171,27 @@ function PopulateDDL() {
                         </button>
                     </div>
                     <div class="modal-body">
-                        
-                        <?php
-                        echo "test afspraken modal";
-                        ?>
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <title>jQuery UI Datepicker - Default functionality</title>
+                        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                        <link rel="stylesheet" href="/resources/demos/style.css">
+                        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                        <script>
+                            $(function () {
+                                $("#datepicker").datepicker();
+                            });
+                        </script>
+                        </head>
+                        <body>
+
+                            <p>Date: <input type="text" id="datepicker"></p>
+
+
+                            <?php
+                            echo "test afspraken modal";
+                            ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -195,7 +212,7 @@ function PopulateDDL() {
                     </div>
                     <div class="modal-body">
                         <?php
-                        Exporteren ();
+                        Exporteren();
                         ?>
                     </div>
                     <div class="modal-footer">
@@ -219,102 +236,118 @@ function PopulateDDL() {
                         <!--Model gesprek + -->
                         <form method="post" id="text" >
                             <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
-                        </form>
-                        ... over here yo
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!--        container size-->
-        <div class="container-fluid">
-            <div class="navbar navbar-default">
 
-            </div>
-
-            <div class="row">
-                <!--            studenten panel-->
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><dt>Studenten</dt></div>
-                        <div class="panel-body">
-
-                            <form action="index.php" method='post'>
-                                <?php
-                                PopulateDDL();
-                                ?>
-                                <!--export button-->
-                                <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="#Export"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
-                                <!--gespeks button-->
-                                <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="#Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
-                            <!--Afspraken button-->
-                                <button type="button" class="btn btn-default" name="Afspraken" data-toggle="modal" data-target="#Afspraken"><i class="fa fa-sitemap" aria-hidden="true"></i>  Afspraken</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Aankomende gesprekken (laatste 5)</div>
-                        <div class="panel-body">
-                            <table id="example" class="display table" cellspacing="0" width="100%">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Naam
-                                        </th>
-                                        <th>
-                                            Datum
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    GetTop5();
-                                    ?>
-                                </tbody>
-                            </table>
-                            
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="col-md-12"></div>
-            <div class="panel panel-default">
-                <div class="panel-heading"><dt>Informatie</dt></div>
-                <div class="panel-body">
-                    <table id="myTable" class="tablesorter table" cellspacing="0" width="100%">
-                        <thead>
-                            <tr>
-                                <th style="cursor: pointer;">ID</th>
-                                <th style="cursor: pointer;">OV</th>
-                                <th style="cursor: pointer;">Voornaam</th>                                
-                                <th style="cursor: pointer;">Tussen</th>
-                                <th style="cursor: pointer;">Achternaam</th>
-                                <th style="cursor: pointer;">Jaar</th>
-                                <th style="cursor: pointer;">Voortgang</th>
-                                <th style="cursor: pointer;">Email</th>
-                                <th style="cursor: pointer;">Foto</th>
-                            </tr>
-                        </thead>
-                        <tbody>
                             <?php
-                            GetStudentsOnOV();
-                            ?>
-                        </tbody>
-                    </table>
-                    <div class="col-md-12">
-                    </div>
+                            if (isset($_POST['submit'])) {
+                                // Putting data from form into variables to be manipulated
+                                global $SelectedValue;
+                                global $conStr;
+                                $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+                                $Datum = date("Y-m-d h:i:s");
+                                $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
 
+                                $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
+                                        . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
+
+                                $result = $conStr->query($sqlExport);
+                            }
+                            ?>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" name="submit" value="Send" id="Save">
+                                </form>
+                            </div>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            <!--        container size-->
+            <div class="container-fluid">
+                <div class="navbar navbar-default">
+
+                </div>
+
+                <div class="row">
+                    <!--            studenten panel-->
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><dt>Studenten</dt></div>
+                            <div class="panel-body">
+
+                                <form action="index.php" method='post'>
+                                    <?php
+                                    PopulateDDL();
+                                    ?>
+                                    <!--export button-->
+                                    <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal" data-target="#Export"><i class="fa fa-files-o" aria-hidden="true"></i>  Exporteren</button>
+                                    <!--gespeks button-->
+                                    <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal" data-target="#Gesprek"><i class="fa fa-plus" aria-hidden="true"></i>  Gesprek</button>
+                                    <!--Afspraken button-->
+                                    <button type="button" class="btn btn-default" name="Afspraken" data-toggle="modal" data-target="#Afspraken"><i class="fa fa-sitemap" aria-hidden="true"></i>  Afspraken</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Aankomende gesprekken (laatste 5)</div>
+                            <div class="panel-body">
+                                <table id="example" class="display table" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Naam
+                                            </th>
+                                            <th>
+                                                Datum
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        GetTop5();
+                                        ?>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="col-md-12"></div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"><dt>Informatie</dt></div>
+                    <div class="panel-body">
+                        <table id="myTable" class="tablesorter table" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th style="cursor: pointer;">ID</th>
+                                    <th style="cursor: pointer;">OV</th>
+                                    <th style="cursor: pointer;">Voornaam</th>                                
+                                    <th style="cursor: pointer;">Tussen</th>
+                                    <th style="cursor: pointer;">Achternaam</th>
+                                    <th style="cursor: pointer;">Jaar</th>
+                                    <th style="cursor: pointer;">Voortgang</th>
+                                    <th style="cursor: pointer;">Email</th>
+                                    <th style="cursor: pointer;">Foto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                GetStudentsOnOV();
+                                ?>
+                            </tbody>
+                        </table>
+                        <div class="col-md-12">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
     </body>
 </html>
