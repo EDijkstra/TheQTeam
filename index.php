@@ -82,6 +82,32 @@ function GetTop5() {
         echo "0 results";
     }
 }
+function Exporteren () {
+    global $SelectedValue;
+    global $conStr;
+    
+    if ($SelectedValue != "") {
+    //sorteer op ov nummer
+    $sqlExporteren = "SELECT ID, OV, Datum, Opmerking FROM afspraken WHERE OV =" . $SelectedValue;
+
+    $resultExporteren = $conStr->query($sqlExporteren);
+
+    if ($resultExporteren && $resultExporteren->num_rows > 0) {
+        //output data of each row
+       
+        
+        while ($row = $resultExporteren->fetch_assoc()) {
+            
+            echo "" . $row["Datum"] . "<br>" .
+            "" . $row["Opmerking"] . 
+            "<br><br>";
+        }
+    } else {
+        echo "0 results";
+} }  
+    
+    
+}
 
 function PopulateDDL() {
     global $SelectedValue;
@@ -144,7 +170,12 @@ function PopulateDDL() {
                         </button>
                     </div>
                     <div class="modal-body">
-                        over here yo....
+                        <form method="post" id="text" >
+                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
+                        </form>
+                        <?php
+                        Exporteren ();
+                        ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
