@@ -3,7 +3,7 @@ $sHost = 'localhost';
 $sUser = 'root';
 $sPass = '';
 $sDB = 'slb';
-
+//zie jij dit beer? mhuahahaha
 //create connection
 $conStr = mysqli_connect($sHost, $sUser, $sPass, $sDB);
 
@@ -112,7 +112,7 @@ function Exporteren () {
 function PopulateDDL() {
     global $SelectedValue;
     global $conStr;
-    
+
     $sqlddl = 'SELECT OV, Voornaam, Tussen, Achternaam FROM studentinfo';
     $resultddl = $conStr->query($sqlddl);
     //set ddl neer ;)
@@ -139,16 +139,16 @@ function PopulateDDL() {
         <title>Sabel</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        
-        
+
+
+
         <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/css.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 
-        
-        
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
@@ -205,6 +205,7 @@ function PopulateDDL() {
                 </div>
             </div>
         </div>
+        
         <!--        container size-->
         <div class="container-fluid">
             <div class="navbar navbar-default">
@@ -234,24 +235,24 @@ function PopulateDDL() {
                     <div class="panel panel-default">
                         <div class="panel-heading">Aankomende gesprekken (laatste 5)</div>
                         <div class="panel-body">
-                            <table id="example" class="display" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <div class="col-md-12">
-                                            <dt>Naam</dt>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="col-md-12">
-                                            <dt>Datum</dt>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <?php
-                                GetTop5();
-                                ?>
+                            <table id="example" class="display table" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Naam
+                                        </th>
+                                        <th>
+                                            Datum
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    GetTop5();
+                                    ?>
+                                </tbody>
                             </table>
-                            <br>
+                            
                         </div>
                     </div>
                 </div> 
@@ -262,18 +263,18 @@ function PopulateDDL() {
             <div class="panel panel-default">
                 <div class="panel-heading"><dt>Informatie</dt></div>
                 <div class="panel-body">
-                    <table id="myTable" class="tablesorter" cellspacing="0" width="100%">
+                    <table id="myTable" class="tablesorter table" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>OV</th>
-                                <th>Voornaam</th>                                
-                                <th>Tussen</th>
-                                <th>Achternaam</th>
-                                <th>Jaar</th>
-                                <th>Voortgang</th>
-                                <th>Email</th>
-                                <th>Foto</th>
+                                <th style="cursor: pointer;">ID</th>
+                                <th style="cursor: pointer;">OV</th>
+                                <th style="cursor: pointer;">Voornaam</th>                                
+                                <th style="cursor: pointer;">Tussen</th>
+                                <th style="cursor: pointer;">Achternaam</th>
+                                <th style="cursor: pointer;">Jaar</th>
+                                <th style="cursor: pointer;">Voortgang</th>
+                                <th style="cursor: pointer;">Email</th>
+                                <th style="cursor: pointer;">Foto</th>
                             </tr>
                         </thead>
                         <tbody>
