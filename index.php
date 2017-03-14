@@ -109,22 +109,25 @@ function Exporteren() {
         }
     }
 }
-function Gesprek () {
-     if (isset($_POST['submit'])) {
-                                // Putting data from form into variables to be manipulated
-                                global $SelectedValue;
-                                global $conStr;
-                                $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
-                                $Datum = date("Y-m-d h:i:s");
-                                $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
 
-                                $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
-                                        . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
+function Gesprek() {
+    global $SelectedValue;
+    global $conStr;
+    $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+    $Datum = date("Y-m-d h:i:s");
+    $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
 
-                                $result = $conStr->query($sqlExport);
-                            }
+    if (isset($_POST['submit'])) {
+        // Putting data from form into variables to be manipulated
+
+
+        $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
+                . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
+
+        $result = $conStr->query($sqlExport);
+    }
+    echo $SelectedValue;
 }
-
 
 function PopulateDDL() {
     global $SelectedValue;
@@ -134,7 +137,7 @@ function PopulateDDL() {
     $resultddl = $conStr->query($sqlddl);
     //set ddl neer ;)
     echo'<select id = "Sel" class="selectpicker show-tick"  data-live-search="true" name="Select_Student" onchange="this.form.submit();">';
-    echo '<option value="default">Select...</option>';
+    echo '<option selected>Select...</option>';
     echo '<option value="all">all</option>';
     while ($row = $resultddl->fetch_assoc()) {
         unset($OV, $Voornaam, $Tussen, $Achternaaam);
@@ -145,7 +148,6 @@ function PopulateDDL() {
         echo '<option value="' . $OV . '">' . $Voornaam . " " . $Tussen . " " . $Achternaam . '</option>';
     }
     echo'</select>';
-
 
     $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
 }
@@ -166,12 +168,7 @@ function PopulateDDL() {
 
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-        <script src="https://use.fontawesome.com/95866f8d45.js"></script>
-        <script src="Sorttable.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/jquery.tablesorter.js"></script> 
+
 
 
     </head>
@@ -254,7 +251,7 @@ function PopulateDDL() {
                             <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
 
                             <?php
-                            Gesprek ()
+                            Gesprek();
                             ?>
 
                             </div>
@@ -352,23 +349,30 @@ function PopulateDDL() {
                     </div>
                 </div>
             </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+            <script src="https://use.fontawesome.com/95866f8d45.js"></script>
+            <script src="Sorttable.js" type="text/javascript"></script>
+            <script type="text/javascript" src="js/jquery.tablesorter.js"></script> 
+            <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('#myTable').tablesorter();
 
+                                $('#Sel').change(function () {
+                                    //get the OV from the selected student
+                                    var SelectedValue = $(this).val();
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "index.php",
+                                        success: function (data) {
+                                            alert('This was sent back: ' + SelectedValue);
+                                            $("#Sel").html(data);
+                                        }
+                                    });
+                                });
+                            });
+            </script>
     </body>
 </html>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#myTable').tablesorter();
-        $('#Sel').change(function () {
-            //get the OV from the selected student
-            var SelectedValue = $(this).val();
-            $.ajax({
-                type: "POST",
-                url: "index.php",
-                success: function (data) {
-                    alert('This was sent back: ' + SelectedValue);
-                    $("#Sel").html(data);
-                }
-            });
-        });
-    });
-</script>
+
