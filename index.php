@@ -109,7 +109,6 @@ function Exporteren() {
         }
     }
 }
-<<<<<<< HEAD
 
 function Gesprek() {
     global $SelectedValue;
@@ -120,8 +119,6 @@ function Gesprek() {
 
     if (isset($_POST['submit'])) {
         // Putting data from form into variables to be manipulated
-=======
->>>>>>> 4726c0500de9eab7cdfcbd2d7c00961810f20f2d
 
 function Gesprek() {
     if (isset($_POST['submit'])) {
@@ -290,14 +287,11 @@ function NameOv() {
                     <div class="modal-body">
                         <!--Model gesprek + -->
                         <form method="post" id="text" >
-<<<<<<< HEAD
                             <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
 
                             <?php
                             Gesprek();
                             ?>
-
-=======
                             <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription">
                                 <?php
                                 if ($SelectedValue == NULL) {
@@ -306,7 +300,6 @@ function NameOv() {
                                 ?>
                             </textarea><br>
                              <?php Gesprek() ?>
->>>>>>> 4726c0500de9eab7cdfcbd2d7c00961810f20f2d
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
