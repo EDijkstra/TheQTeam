@@ -116,18 +116,21 @@ function Exporteren()
 
 function Gesprek()
 {
+    global $SelectedValue;
+    global $conStr;
+    $Datum = date("Y-m-d h:i:s");
+    $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
+
     if (isset($_POST['submit'])) {
         // Putting data from form into variables to be manipulated
-        global $SelectedValue;
-        global $conStr;
-        $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
-        $Datum = date("Y-m-d h:i:s");
-        $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
-
         $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
             . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
 
-        $result = $conStr->query($sqlExport);
+        $conStr->query($sqlExport);
+
+        echo $SelectedValue;
+        echo'.......';
+        echo $sqlExport;
     }
 }
 
@@ -140,7 +143,7 @@ function PopulateDDL()
     $resultddl = $conStr->query($sqlddl);
     //set ddl neer ;)
     echo '<select id="Sel" class="selectpicker show-tick"  data-live-search="true" name="Select_Student" onchange="this.form.submit();">';
-    echo '<option selected>Select...</option>';
+    echo '<option value="-1">Select...</option>';
     echo '<option value="0">all</option>';
     while ($row = $resultddl->fetch_assoc()) {
         unset($OV, $Voornaam, $Tussen, $Achternaaam);
@@ -226,7 +229,6 @@ function NameOv()
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-
                 <h5 class="modal-title" id="exampleModalLongTitle">
                     Exporteren <?php NameOv() ?>
                 </h5>
@@ -234,6 +236,11 @@ function NameOv()
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+            </div>
+            <div class="modal-body">
+                <?php
+                Exporteren();
+                ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -256,15 +263,10 @@ function NameOv()
             <div class="modal-body">
                 <!--Model gesprek + -->
                 <form method="post" id="text">
-                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text"
-                                      id="formPostDescription">
-                                <?php
-                                if ($SelectedValue == NULL) {
-                                    echo "No User Selected";
-                                }
-                                ?>
-                            </textarea>
-                    <?php Gesprek() ?>
+                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"><?php if ($SelectedValue == NULL) { echo "No User Selected";}?></textarea>
+                    <?php
+                    Gesprek()
+                    ?>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -273,6 +275,7 @@ function NameOv()
                         ?>
                         <button type="button" class="btn btn-secondary">Save<?php
                             } else {
+                                // type="submit"
                                 ?><input type="submit" class="btn btn-primary" name="submit" value="Send"
                                          id="Save"><?php }
                             ?>
