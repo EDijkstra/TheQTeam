@@ -109,22 +109,22 @@ function Exporteren() {
         }
     }
 }
-function Gesprek () {
-     if (isset($_POST['submit'])) {
-                                // Putting data from form into variables to be manipulated
-                                global $SelectedValue;
-                                global $conStr;
-                                $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
-                                $Datum = date("Y-m-d h:i:s");
-                                $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
 
-                                $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
-                                        . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
+function Gesprek() {
+    if (isset($_POST['submit'])) {
+        // Putting data from form into variables to be manipulated
+        global $SelectedValue;
+        global $conStr;
+        $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+        $Datum = date("Y-m-d h:i:s");
+        $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
 
-                                $result = $conStr->query($sqlExport);
-                            }
+        $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
+                . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
+
+        $result = $conStr->query($sqlExport);
+    }
 }
-
 
 function PopulateDDL() {
     global $SelectedValue;
@@ -149,7 +149,26 @@ function PopulateDDL() {
 
     $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
 }
+
+function NameOv() {
+    global $SelectedValue;
+    global $conStr;
+    $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+
+    if ($SelectedValue != "") {
+        //sorteer op ov nummer
+        $sqlName = "SELECT OV, Voornaam, Achternaam FROM studentinfo WHERE OV =" . $SelectedValue;
+        $resultName = $conStr->query($sqlName);
+
+        while ($row = $resultName->fetch_assoc()) {
+
+            echo " " . " " . $row["Voornaam"] . " " . $row["Achternaam"] . " :" . $row["OV"];
+        }
+    }
+}
 ?>
+
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -181,7 +200,8 @@ function PopulateDDL() {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Afspraken</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            Afspraken  <?php NameOv() ?></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -221,7 +241,11 @@ function PopulateDDL() {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Exporteren</h5>
+
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            Exporteren  <?php NameOv() ?>
+                        </h5>
+
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -233,7 +257,6 @@ function PopulateDDL() {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="submit" id="submit">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -243,7 +266,8 @@ function PopulateDDL() {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Gesprek toevoegen</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            Gesprek toevoegen  <?php NameOv() ?></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -251,16 +275,23 @@ function PopulateDDL() {
                     <div class="modal-body">
                         <!--Model gesprek + -->
                         <form method="post" id="text" >
-                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"></textarea><br>
-
-                            <?php
-                            Gesprek ()
-                            ?>
-
+                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription">
+                                <?php
+                                if ($SelectedValue == NULL) {
+                                    echo "No User Selected";
+                                }
+                                ?>
+                            </textarea><br>
+                             <?php Gesprek() ?>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <input type="submit" name="submit" value="Send" id="Save">
+                                <?php
+                                if ($SelectedValue == NULL) {
+                                    ?><button type="button" class="btn btn-secondary">Save<?php
+                                } else {
+                                    ?><input type="submit" class="btn btn-primary" name="submit" value="Send" id="Save"><?php }
+                                ?>
                                 </form>
                             </div>
                     </div>
