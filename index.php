@@ -330,6 +330,7 @@ function NameOv()
 <script type="text/javascript">
     $(document).ready(function () {
         //table sorter functie
+        //if ($('#Sel').val() === "" || $('#Sel').val() === "0")
         $('#myTable').tablesorter();
 
         // get selection

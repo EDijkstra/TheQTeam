@@ -22,17 +22,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="344" column="59" selection-start-line="344" selection-start-column="59" selection-end-line="344" selection-end-column="59" />
+            <state relative-caret-position="301">
+              <caret line="330" column="35" selection-start-line="330" selection-start-column="35" selection-end-line="330" selection-end-column="35" />
               <folding>
-                <marker date="1489568605770" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-                <marker date="1489568605770" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-                <marker date="1489568605770" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-                <marker date="1489568605770" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
-                <marker date="1489568605770" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+                <marker date="1489575407801" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
+                <marker date="1489575407801" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
+                <marker date="1489575407801" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
+                <marker date="1489575407801" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
+                <marker date="1489575407801" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
               </folding>
             </state>
           </provider>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exporteren.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Exporteren.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exporteren.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="29" column="120" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+            <state relative-caret-position="517">
+              <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
               <folding>
                 <element signature="e#6#88#0#PHP" expanded="true" />
                 <marker date="1489568838965" expanded="true" signature="767:823" placeholder="SELECT ID, O... afspraken" />
@@ -99,8 +99,8 @@
       <list>
         <option value="$PROJECT_DIR$/NewGesprek.php" />
         <option value="$PROJECT_DIR$/getStudent.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/Exporteren.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -213,15 +213,15 @@
       <option name="presentableId" value="Default" />
       <updated>1489487130985</updated>
       <workItem from="1489487132513" duration="5046000" />
-      <workItem from="1489564573557" duration="4816000" />
+      <workItem from="1489564573557" duration="5727000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9862000" />
+    <option name="totallyTimeSpent" value="10773000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2579666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -258,11 +258,11 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1489568605770" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
           </folding>
         </state>
       </provider>
@@ -271,9 +271,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1489399281696" expanded="true" signature="1767:1824" placeholder="SELECT ID, O... afspraken" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -314,30 +312,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="344" column="59" selection-start-line="344" selection-start-column="59" selection-end-line="344" selection-end-column="59" />
-          <folding>
-            <marker date="1489568605770" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
-            <marker date="1489568605770" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Exporteren.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="29" column="120" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+        <state relative-caret-position="517">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
           <folding>
             <element signature="e#6#88#0#PHP" expanded="true" />
             <marker date="1489568838965" expanded="true" signature="767:823" placeholder="SELECT ID, O... afspraken" />
             <marker date="1489568838965" expanded="true" signature="767:845" placeholder="SELECT ID, O... afspraken" />
             <marker date="1489568838965" expanded="true" signature="767:865" placeholder="SELECT ID, O... afspraken" />
             <marker date="1489568838965" expanded="true" signature="767:866" placeholder="SELECT ID, O... afspraken" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="330" column="35" selection-start-line="330" selection-start-column="35" selection-end-line="330" selection-end-column="35" />
+          <folding>
+            <marker date="1489575407801" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489575407801" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
           </folding>
         </state>
       </provider>
