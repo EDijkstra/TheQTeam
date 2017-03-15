@@ -86,54 +86,6 @@ function GetTop5()
     }
 }
 
-function Exporteren()
-{
-    //global $SelectedValue;
-    global $conStr;
-    $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
-
-    if ($SelectedValue != "") {
-        //sorteer op ov nummer
-        $sqlExporteren = "SELECT ID, OV, Datum, Opmerking FROM afspraken WHERE OV =" . $SelectedValue;
-
-        $resultExporteren = $conStr->query($sqlExporteren);
-
-        if ($resultExporteren && $resultExporteren->num_rows > 0) {
-            //output data of each row
-
-
-            while ($row = $resultExporteren->fetch_assoc()) {
-
-                echo "" . $row["Datum"] . "<br>" .
-                    "" . $row["Opmerking"] .
-                    "<hr><br>";
-            }
-        } else {
-            echo "0 results";
-        }
-    }
-}
-
-function Gesprek()
-{
-    global $SelectedValue;
-    global $conStr;
-    $Datum = date("Y-m-d h:i:s");
-    $Opmerking = filter_input(INPUT_POST, 'formPostDescription');
-
-    if (isset($_POST['submit'])) {
-        // Putting data from form into variables to be manipulated
-        $sqlExport = "INSERT INTO afspraken (OV, Datum, Opmerking) "
-            . "VALUES ('$SelectedValue', '$Datum', '$Opmerking')";
-
-        $conStr->query($sqlExport);
-
-        echo $SelectedValue;
-        echo'.......';
-        echo $sqlExport;
-    }
-}
-
 function PopulateDDL()
 {
     global $SelectedValue;
@@ -142,7 +94,7 @@ function PopulateDDL()
     $sqlddl = 'SELECT OV, Voornaam, Tussen, Achternaam FROM studentinfo';
     $resultddl = $conStr->query($sqlddl);
     //set ddl neer ;)
-    echo '<select id="Sel" class="selectpicker show-tick"  data-live-search="true" name="Select_Student" onchange="this.form.submit();">';
+    echo '<select id="Sel" class="selectpicker show-tick"  data-live-search="true" name="Select_Student">';
     echo '<option value="-1">Select...</option>';
     echo '<option value="0">all</option>';
     while ($row = $resultddl->fetch_assoc()) {
@@ -224,7 +176,7 @@ function NameOv()
     </div>
 </div>
 <!--        modal voor export button-->
-<div class="modal fade" id="Export" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+<div class="modal fade" id="ExportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -237,10 +189,7 @@ function NameOv()
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <?php
-                Exporteren();
-                ?>
+            <div id="exportResult" class="modal-body">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -249,13 +198,13 @@ function NameOv()
     </div>
 </div>
 <!--        modal voor de gespreks button-->
-<div class="modal fade" id="Gesprek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+<div class="modal fade" id="GesprekModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                    Gesprek toevoegen <?php NameOv() ?></h5>
+                <h5 class="modal-title" id="GesprekModalTitle">
+                    Gesprek toevoegen</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -263,22 +212,13 @@ function NameOv()
             <div class="modal-body">
                 <!--Model gesprek + -->
                 <form method="post" id="text">
-                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="text" id="formPostDescription"><?php if ($SelectedValue == NULL) { echo "No User Selected";}?></textarea>
-                    <?php
-                    Gesprek()
-                    ?>
+                            <textarea style="min-height:150px;min-width:500px" name="formPostDescription" id="formPostDescription"></textarea>
+
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <?php
-                        if ($SelectedValue == NULL) {
-                        ?>
-                        <button type="button" class="btn btn-secondary">Save<?php
-                            } else {
-                                // type="submit"
-                                ?><input type="submit" class="btn btn-primary" name="submit" value="Send"
-                                         id="Save"><?php }
-                            ?>
+                        <button id="saveGesprek" type="button" class="btn btn-secondary" data-dismiss="modal">Save</button>
+<!--                        <input type="submit" class="btn btn-primary" name="submit" value="Send" id="Save">-->
                     </div>
                 </form>
             </div>
@@ -306,12 +246,12 @@ function NameOv()
                         PopulateDDL();
                         ?>
                         <!--export button-->
-                        <button type="button" class="btn btn-default" name="Exporteren" data-toggle="modal"
-                                data-target="#Export"><i class="fa fa-files-o" aria-hidden="true"></i> Exporteren
+                        <button type="button" id="Exporteren" class="btn btn-default" name="Exporteren" data-toggle="modal"
+                                data-target="#ExportModal" disabled><i class="fa fa-files-o" aria-hidden="true"></i> Exporteren
                         </button>
                         <!--gespeks button-->
-                        <button type="button" class="btn btn-default" name="Gesprek" data-toggle="modal"
-                                data-target="#Gesprek"><i class="fa fa-plus" aria-hidden="true"></i> Gesprek
+                        <button type="button" id="newGesprek" class="btn btn-default" name="Gesprek" data-toggle="modal"
+                                data-target="#Gesprek" disabled><i class="fa fa-plus" aria-hidden="true"></i> Gesprek
                         </button>
                         <!--Afspraken button-->
                         <button type="button" class="btn btn-default" name="Afspraken" data-toggle="modal"
@@ -369,7 +309,7 @@ function NameOv()
                     <th style="cursor: pointer;">Foto</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="studentList">
                 <?php
                 GetStudentsOnOV();
                 ?>
@@ -389,20 +329,70 @@ function NameOv()
 <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        //table sorter functie
         $('#myTable').tablesorter();
 
+        // get selection
         $('#Sel').change(function () {
             //get the OV from the selected student
             var SelectedValue = $(this).val();
             $.ajax({
                 type: "POST",
-                url: "index.php",
+                url: "getStudent.php",
+                data: {Select_Student: SelectedValue},
                 success: function (data) {
-                    alert('This was sent back: ' + SelectedValue);
-                    $("#Sel").html(data);
+//                    alert('This was sent back: ' + SelectedValue);
+                    $("#myTable").find("tbody").html(data);
                 }
             });
+            // disable button when student not selected
+            $("#newGesprek").prop('disabled', SelectedValue === "0");
+            $("#Exporteren").prop('disabled', SelectedValue === "0");
         });
+
+        // new gesprek
+        $("#newGesprek").click(function() {
+            var naamStudent = $("#Sel option:selected").html();
+            var OV = $("#Sel").val();
+            $("#GesprekModalTitle").html("Gesprek tovoegen - " + naamStudent + " / " + OV);
+            $('#GesprekModal').modal('show');
+        });
+
+        $("#saveGesprek").click(function() {
+            var OV = $("#Sel").val();
+            var gesprek = $("#formPostDescription").val();
+            postData = {
+                'Select_Student': OV,
+                'formPostDescription': gesprek,
+            }
+
+            // ajax request to post the new 'gesprek'
+            $.ajax({
+                type: "POST",
+                data: postData,
+                url: "NewGesprek.php",
+                success: function (data) {
+                    $('#GesprekModal').modal('hide');
+                }
+            });
+        })
+        $("#Exporteren").click(function() {
+            var OV = $("#Sel").val();
+            postData = {
+                'Select_Student': OV
+            }
+
+            // ajax request to post the new 'gesprek'
+            $.ajax({
+                type: "POST",
+                data: postData,
+                url: "Exporteren.php",
+                success: function (data) {
+                    console.log($('#ExportModal.modal-body'));
+                    $('#exportResult').html(data);
+                }
+            });
+        })
     });
 </script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

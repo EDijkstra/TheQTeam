@@ -21,21 +21,69 @@
     <favorites_list name="TheQTeam" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2550">
-              <caret line="278" column="55" selection-start-line="278" selection-start-column="55" selection-end-line="278" selection-end-column="55" />
+            <state relative-caret-position="324">
+              <caret line="344" column="59" selection-start-line="344" selection-start-column="59" selection-end-line="344" selection-end-column="59" />
               <folding>
-                <element signature="n#style#0;n#textarea#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1489493670640" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-                <marker date="1489493670640" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-                <marker date="1489493670640" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-                <marker date="1489493670640" expanded="true" signature="3056:3113" placeholder="SELECT ID, O... afspraken" />
-                <marker date="1489493670640" expanded="true" signature="3867:3978" placeholder="INSERT INTO afspraken... " />
-                <marker date="1489493670640" expanded="true" signature="4193:4249" placeholder="SELECT OV, V... studentinfo" />
-                <marker date="1489493670640" expanded="true" signature="5209:5268" placeholder="SELECT OV, V... studentinfo" />
+                <marker date="1489568605770" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
+                <marker date="1489568605770" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
+                <marker date="1489568605770" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
+                <marker date="1489568605770" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
+                <marker date="1489568605770" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getStudent.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getStudent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="24" column="57" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="57" />
+              <folding>
+                <marker date="1489568053399" expanded="true" signature="784:857" placeholder="SELECT ID, O... studentinfo" />
+                <marker date="1489568053399" expanded="true" signature="944:1028" placeholder="SELECT ID, O... studentinfo" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jquery.tablesorter.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jquery.tablesorter.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="888" column="13" selection-start-line="888" selection-start-column="8" selection-end-line="888" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Exporteren.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Exporteren.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="29" column="120" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+              <folding>
+                <element signature="e#6#88#0#PHP" expanded="true" />
+                <marker date="1489568838965" expanded="true" signature="767:823" placeholder="SELECT ID, O... afspraken" />
+                <marker date="1489568838965" expanded="true" signature="767:845" placeholder="SELECT ID, O... afspraken" />
+                <marker date="1489568838965" expanded="true" signature="767:865" placeholder="SELECT ID, O... afspraken" />
+                <marker date="1489568838965" expanded="true" signature="767:866" placeholder="SELECT ID, O... afspraken" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewGesprek.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NewGesprek.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="23" column="1" selection-start-line="7" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
+              <folding>
+                <marker date="1489566902285" expanded="true" signature="830:933" placeholder="INSERT INTO afspraken... " />
               </folding>
             </state>
           </provider>
@@ -49,7 +97,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/NewGesprek.php" />
+        <option value="$PROJECT_DIR$/getStudent.php" />
         <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/Exporteren.php" />
       </list>
     </option>
   </component>
@@ -60,10 +111,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="-7" />
     <option name="width" value="1378" />
-    <option name="height" value="744" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -90,6 +140,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -110,8 +162,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -136,6 +186,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -156,32 +212,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1489487130985</updated>
-      <workItem from="1489487132513" duration="3787000" />
+      <workItem from="1489487132513" duration="5046000" />
+      <workItem from="1489564573557" duration="4816000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3787000" />
+    <option name="totallyTimeSpent" value="9862000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
+    <frame x="-7" y="0" width="1378" height="735" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25417298" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2579666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -198,17 +255,89 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2550">
-          <caret line="278" column="55" selection-start-line="278" selection-start-column="55" selection-end-line="278" selection-end-column="55" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#textarea#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1489493670640" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489493670640" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489493670640" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-            <marker date="1489493670640" expanded="true" signature="3056:3113" placeholder="SELECT ID, O... afspraken" />
-            <marker date="1489493670640" expanded="true" signature="3867:3978" placeholder="INSERT INTO afspraken... " />
-            <marker date="1489493670640" expanded="true" signature="4193:4249" placeholder="SELECT OV, V... studentinfo" />
-            <marker date="1489493670640" expanded="true" signature="5209:5268" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exporteren_Total_gesprek_datum.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1489399281696" expanded="true" signature="1767:1824" placeholder="SELECT ID, O... afspraken" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/+Gesprek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NewGesprek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="1" selection-start-line="7" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <marker date="1489566902285" expanded="true" signature="830:933" placeholder="INSERT INTO afspraken... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.tablesorter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="888" column="13" selection-start-line="888" selection-start-column="8" selection-end-line="888" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="24" column="57" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="57" />
+          <folding>
+            <marker date="1489568053399" expanded="true" signature="784:857" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489568053399" expanded="true" signature="944:1028" placeholder="SELECT ID, O... studentinfo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="344" column="59" selection-start-line="344" selection-start-column="59" selection-end-line="344" selection-end-column="59" />
+          <folding>
+            <marker date="1489568605770" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489568605770" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exporteren.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="29" column="120" selection-start-line="29" selection-start-column="120" selection-end-line="29" selection-end-column="120" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+            <marker date="1489568838965" expanded="true" signature="767:823" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:845" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:865" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:866" placeholder="SELECT ID, O... afspraken" />
           </folding>
         </state>
       </provider>
