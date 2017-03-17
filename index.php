@@ -27,38 +27,38 @@ function GetCurDate()
     }
 }
 
-function GetStudentsOnOV()
-{
-    global $SelectedValue;
-    global $conStr;
-
-
-    if ($SelectedValue == "" || $SelectedValue == "0") {
-        //geen sorteren gewoon alles selecteren
-        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
-    } else if ($SelectedValue != "") {
-        //sorteer op ov nummer
-        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
-    }
-    $resultPanelTitle = $conStr->query($sqlPaneltitle);
-    if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
-
-        while ($row = $resultPanelTitle->fetch_assoc()) {
-            echo '<tr>' .
-                '<td>' . $row["ID"] . "</td>" .
-                '<td>' . $row["OV"] . "</td>" .
-                '<td>' . $row["Voornaam"] . "</td>" .
-                '<td>' . $row["Tussen"] . "</td>" .
-                '<td>' . $row["Achternaam"] . "</td>" .
-                '<td>' . $row["Klas"] . "</td>" .
-                '<td>stuff</td>' .
-                '<td>' . $row["Email"] . '</td>' .
-                '<td>stuff</td>' .
-                '<td>stuff</td>' .
-                '</tr>';
-        }
-    }
-}
+//function GetStudentsOnOV()
+//{
+//    global $SelectedValue;
+//    global $conStr;
+//
+//
+//    if ($SelectedValue == "" || $SelectedValue == "0") {
+//        //geen sorteren gewoon alles selecteren
+//        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
+//    } else if ($SelectedValue != "") {
+//        //sorteer op ov nummer
+//        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
+//    }
+//    $resultPanelTitle = $conStr->query($sqlPaneltitle);
+//    if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
+//
+//        while ($row = $resultPanelTitle->fetch_assoc()) {
+//            echo '<tr>' .
+//                '<td>' . $row["ID"] . "</td>" .
+//                '<td>' . $row["OV"] . "</td>" .
+//                '<td>' . $row["Voornaam"] . "</td>" .
+//                '<td>' . $row["Tussen"] . "</td>" .
+//                '<td>' . $row["Achternaam"] . "</td>" .
+//                '<td>' . $row["Klas"] . "</td>" .
+//                '<td>stuff</td>' .
+//                '<td>' . $row["Email"] . '</td>' .
+//                '<td>stuff</td>' .
+//                '<td>stuff</td>' .
+//                '</tr>';
+//        }
+//    }
+//}
 
 function GetTop5()
 {
@@ -310,9 +310,6 @@ function NameOv()
                 </tr>
                 </thead>
                 <tbody id="studentList">
-                <?php
-                GetStudentsOnOV();
-                ?>
                 </tbody>
             </table>
             <div class="col-md-12">
@@ -331,9 +328,16 @@ function NameOv()
     $(document).ready(function () {
         //table sorter functie
         //if ($('#Sel').val() === "" || $('#Sel').val() === "0")
-        $('#myTable').tablesorter();
-
         // get selection
+        $.ajax({
+            type: "POST",
+            url: "getStudent.php",
+            success: function (data) {
+                $("#myTable").find("tbody").html(data);
+                $("#myTable").tablesorter();
+            }
+        });
+
         $('#Sel').change(function () {
             //get the OV from the selected student
             var SelectedValue = $(this).val();

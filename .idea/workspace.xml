@@ -25,14 +25,15 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="330" column="35" selection-start-line="330" selection-start-column="35" selection-end-line="330" selection-end-column="35" />
+            <state relative-caret-position="3196">
+              <caret line="255" column="12" selection-start-line="255" selection-start-column="12" selection-end-line="255" selection-end-column="12" />
               <folding>
-                <marker date="1489575407801" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-                <marker date="1489575407801" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-                <marker date="1489575407801" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-                <marker date="1489575407801" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
-                <marker date="1489575407801" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+                <element signature="n#GetTop5#0;n#!!top" expanded="false" />
+                <element signature="n#PopulateDDL#0;n#!!top" expanded="false" />
+                <element signature="n#NameOv#0;n#!!top" expanded="false" />
+                <marker date="1489580650181" expanded="true" signature="2088:2307" placeholder="SELECT stude... studentinfo" />
+                <marker date="1489580650181" expanded="true" signature="2980:3036" placeholder="SELECT OV, V... studentinfo" />
+                <marker date="1489580650181" expanded="true" signature="3965:4024" placeholder="SELECT OV, V... studentinfo" />
               </folding>
             </state>
           </provider>
@@ -41,8 +42,8 @@
       <file leaf-file-name="getStudent.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getStudent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="24" column="57" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="57" />
+            <state relative-caret-position="425">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <marker date="1489568053399" expanded="true" signature="784:857" placeholder="SELECT ID, O... studentinfo" />
                 <marker date="1489568053399" expanded="true" signature="944:1028" placeholder="SELECT ID, O... studentinfo" />
@@ -54,7 +55,7 @@
       <file leaf-file-name="jquery.tablesorter.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/jquery.tablesorter.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="14892">
               <caret line="888" column="13" selection-start-line="888" selection-start-column="8" selection-end-line="888" selection-end-column="13" />
               <folding />
             </state>
@@ -64,7 +65,7 @@
       <file leaf-file-name="Exporteren.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exporteren.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
+            <state relative-caret-position="731">
               <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
               <folding>
                 <element signature="e#6#88#0#PHP" expanded="true" />
@@ -80,10 +81,10 @@
       <file leaf-file-name="NewGesprek.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NewGesprek.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="1" selection-start-line="7" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
+            <state relative-caret-position="187">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
-                <marker date="1489566902285" expanded="true" signature="830:933" placeholder="INSERT INTO afspraken... " />
+                <marker date="1489579572279" expanded="true" signature="799:902" placeholder="INSERT INTO afspraken... " />
               </folding>
             </state>
           </provider>
@@ -97,9 +98,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/NewGesprek.php" />
         <option value="$PROJECT_DIR$/getStudent.php" />
         <option value="$PROJECT_DIR$/Exporteren.php" />
+        <option value="$PROJECT_DIR$/NewGesprek.php" />
         <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
@@ -109,11 +110,15 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1378" />
-    <option name="height" value="735" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -140,8 +145,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -162,6 +165,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -205,6 +210,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="beaea65f-67dd-4ddd-9d0e-62ab814ee3c2" name="Default" comment="" />
@@ -213,18 +221,20 @@
       <option name="presentableId" value="Default" />
       <updated>1489487130985</updated>
       <workItem from="1489487132513" duration="5046000" />
-      <workItem from="1489564573557" duration="5727000" />
+      <workItem from="1489564573557" duration="6845000" />
+      <workItem from="1489662458832" duration="655000" />
+      <workItem from="1489750708654" duration="834000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10773000" />
+    <option name="totallyTimeSpent" value="13380000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2579666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2632375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -243,6 +253,14 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -258,53 +276,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1489575407801" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+            <element signature="n#GetTop5#0;n#!!top" expanded="false" />
+            <element signature="n#PopulateDDL#0;n#!!top" expanded="false" />
+            <element signature="n#NameOv#0;n#!!top" expanded="false" />
+            <marker date="1489580650181" expanded="true" signature="2088:2307" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="2980:3036" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="3965:4024" placeholder="SELECT OV, V... studentinfo" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exporteren_Total_gesprek_datum.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/+Gesprek.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NewGesprek.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="1" selection-start-line="7" selection-start-column="0" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <marker date="1489566902285" expanded="true" signature="830:933" placeholder="INSERT INTO afspraken... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/jquery.tablesorter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="888" column="13" selection-start-line="888" selection-start-column="8" selection-end-line="888" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/getStudent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="24" column="57" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="57" />
+        <state relative-caret-position="425">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <marker date="1489568053399" expanded="true" signature="784:857" placeholder="SELECT ID, O... studentinfo" />
             <marker date="1489568053399" expanded="true" signature="944:1028" placeholder="SELECT ID, O... studentinfo" />
@@ -312,9 +297,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.tablesorter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14892">
+          <caret line="888" column="13" selection-start-line="888" selection-start-column="8" selection-end-line="888" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Exporteren.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
+        <state relative-caret-position="731">
           <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
           <folding>
             <element signature="e#6#88#0#PHP" expanded="true" />
@@ -326,16 +319,145 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NewGesprek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1489579572279" expanded="true" signature="799:902" placeholder="INSERT INTO afspraken... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="330" column="35" selection-start-line="330" selection-start-column="35" selection-end-line="330" selection-end-column="35" />
+        <state relative-caret-position="4879">
+          <caret line="349" column="59" selection-start-line="349" selection-start-column="59" selection-end-line="349" selection-end-column="59" />
           <folding>
-            <marker date="1489575407801" expanded="true" signature="974:1047" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="1146:1230" placeholder="SELECT ID, O... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="2024:2243" placeholder="SELECT stude... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="2916:2972" placeholder="SELECT OV, V... studentinfo" />
-            <marker date="1489575407801" expanded="true" signature="3901:3960" placeholder="SELECT OV, V... studentinfo" />
+            <element signature="n#GetTop5#0;n#!!top" expanded="false" />
+            <element signature="n#PopulateDDL#0;n#!!top" expanded="false" />
+            <element signature="n#NameOv#0;n#!!top" expanded="false" />
+            <marker date="1489580650181" expanded="true" signature="2088:2307" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="2980:3036" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="3965:4024" placeholder="SELECT OV, V... studentinfo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <marker date="1489568053399" expanded="true" signature="784:857" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489568053399" expanded="true" signature="944:1028" placeholder="SELECT ID, O... studentinfo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.tablesorter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14892">
+          <caret line="888" column="13" selection-start-line="888" selection-start-column="8" selection-end-line="888" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exporteren.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+            <marker date="1489568838965" expanded="true" signature="767:823" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:845" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:865" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:866" placeholder="SELECT ID, O... afspraken" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NewGesprek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1489579572279" expanded="true" signature="799:902" placeholder="INSERT INTO afspraken... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#GetTop5#0;n#!!top" expanded="false" />
+            <element signature="n#PopulateDDL#0;n#!!top" expanded="false" />
+            <element signature="n#NameOv#0;n#!!top" expanded="false" />
+            <marker date="1489580650181" expanded="true" signature="2088:2307" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="2980:3036" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="3965:4024" placeholder="SELECT OV, V... studentinfo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exporteren_Total_gesprek_datum.php" />
+    <entry file="file://$PROJECT_DIR$/+Gesprek.php" />
+    <entry file="file://$PROJECT_DIR$/js/jquery.tablesorter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14892">
+          <caret line="888" column="13" selection-start-line="888" selection-start-column="8" selection-end-line="888" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exporteren.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#88#0#PHP" expanded="true" />
+            <marker date="1489568838965" expanded="true" signature="767:823" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:845" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:865" placeholder="SELECT ID, O... afspraken" />
+            <marker date="1489568838965" expanded="true" signature="767:866" placeholder="SELECT ID, O... afspraken" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NewGesprek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <marker date="1489579572279" expanded="true" signature="799:902" placeholder="INSERT INTO afspraken... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getStudent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <marker date="1489568053399" expanded="true" signature="784:857" placeholder="SELECT ID, O... studentinfo" />
+            <marker date="1489568053399" expanded="true" signature="944:1028" placeholder="SELECT ID, O... studentinfo" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3196">
+          <caret line="255" column="12" selection-start-line="255" selection-start-column="12" selection-end-line="255" selection-end-column="12" />
+          <folding>
+            <element signature="n#GetTop5#0;n#!!top" expanded="false" />
+            <element signature="n#PopulateDDL#0;n#!!top" expanded="false" />
+            <element signature="n#NameOv#0;n#!!top" expanded="false" />
+            <marker date="1489580650181" expanded="true" signature="2088:2307" placeholder="SELECT stude... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="2980:3036" placeholder="SELECT OV, V... studentinfo" />
+            <marker date="1489580650181" expanded="true" signature="3965:4024" placeholder="SELECT OV, V... studentinfo" />
           </folding>
         </state>
       </provider>

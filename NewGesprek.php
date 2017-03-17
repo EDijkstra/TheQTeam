@@ -9,7 +9,6 @@ $sHost = 'localhost';
 $sUser = 'root';
 $sPass = '';
 $sDB = 'slb';
-//zie jij dit beer? mhuahahaha
 //create connection
 $conStr = mysqli_connect($sHost, $sUser, $sPass, $sDB);
 
