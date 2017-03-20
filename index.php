@@ -79,6 +79,8 @@ function NameOv() {
     global $SelectedValue;
     global $conStr;
     $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+    
+    
 
     if ($SelectedValue != "") {
         //sorteer op ov nummer
@@ -108,6 +110,8 @@ function CreateAppointment(){
               href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <link rel="stylesheet" type="text/css" href="datetimepicker-master/jquery.datetimepicker.css"/>
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        
         <style type="text/css"></style>
     </head>
     <body>
@@ -118,25 +122,22 @@ function CreateAppointment(){
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">
-                            Afspraken <?php NameOv() ?></h5>
+                            Afspraken <?php NameOv();
+                            
+//                           // $DateTimePicker = filter_input(INPUT_POST, 'datetimepicker');
+                            ?></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <meta name="viewport" content="width=device-width, initial-scale=1">
-                        <title>jQuery UI Datepicker - Default functionality</title>
-                        <link rel="stylesheet" href="/resources/demos/style.css">
-
-                        </head>
-                        <body>
-
                             <input type="text" value="" name="datetimepicker" id="datetimepicker"/><br><br>
-                            
+                       
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" name="submit" id="submit">Save changes</button>
+                       <button id="submitDATE" type="button" class="btn btn-secondary" data-dismiss="modal" >Save</button>
+                       
                     </div>
                 </div>
             </div>
@@ -220,8 +221,8 @@ PopulateDDL();
                                         data-target="#Gesprek" disabled><i class="fa fa-plus" aria-hidden="true"></i> Gesprek
                                 </button>
                                 <!--Afspraken button-->
-                                <button type="button" class="btn btn-default" name="Afspraken" data-toggle="modal"
-                                        data-target="#AfsprakenModal"><i class="fa fa-sitemap" aria-hidden="true"></i> Afspraken
+                                <button type="button" id="Afspraken" class="btn btn-default" name="Afspraken" data-toggle="modal"
+                                        data-target="#AfsprakenModal" disabled><i class="fa fa-sitemap" aria-hidden="true"></i> Afspraken
                                 </button>
                             </form>
                         </div>
@@ -298,7 +299,7 @@ GetTop5();
             $(document).ready(function () {
                 //table sorter functie
                 //if ($('#Sel').val() === "" || $('#Sel').val() === "0")
-                $('#myTable').tablesorter();
+//                $('#myTable').tablesorter();
                 // get selection
                 $.ajax({
                     type: "POST",
@@ -321,9 +322,10 @@ GetTop5();
                             //$("#myTable").find("tbody").html(data);
                         }
                     });
-                    // disable button when student not selected
+                    // button when student not selected
                     $("#newGesprek").prop('disabled', SelectedValue === "0");
                     $("#Exporteren").prop('disabled', SelectedValue === "0");
+                    $("#Afspraken").prop('disabled', SelectedValue === "0");
                 });
 
                 // new gesprek
@@ -352,47 +354,66 @@ GetTop5();
                         }
                     });
                 })
-                $("#Exporteren").click(function () {
+                 $("#submitDATE").click(function () {
                     var OV = $("#Sel").val();
-                    postData = {
-                        'Select_Student': OV
-                    }
+                    var Datum = $("#datetimepicker").val();
 
-                    // ajax request to post the new 'gesprek'
-                    $.ajax({
-                        type: "POST",
-                        data: postData,
-                        url: "Exporteren.php",
-                        success: function (data) {
-                            console.log($('#ExportModal.modal-body'));
-                            $('#exportResult').html(data);
-                        }
-                    });
-                })
-                
-                $("#saveAfspraak").click(function () {
-                    var OV = $("#Sel").val();
-                    var DateTimePicker = $('#datetimepicker').val();
                     postData = {
-                        'Select_Student': OV,
-                        'datetimepicker': DateTimePicker
-                    }
-
-                    // ajax request to post the new 'gesprek'
-                    $.ajax({
-                        type: "POST",
-                        data: postData,
-                        url: "NewAfspraak.php",
-                        success: function (data) {
-                            $('#AfsprakenModal').modal('hide');
-                        }
-                    });
-                })
-            });
+                         'Select_Student': OV,
+                         'datetimepicker': Datum,
+                     } 
+                     // ajax request to post the new 'gesprek'
+                     $.ajax({
+                         type: "POST",
+                         data: postData,
+                         url: "NewAfspraak.php",
+                         success: function (data) {
+                             $('#AfspraakModal').modal('hide');
+                         }
+                     });
+                 })
+                 
+                 $("#Exporteren").click(function () {
+                     var OV = $("#Sel").val();
+                     postData = {
+                         'Select_Student': OV
+                     }
+ 
+                     // ajax request to post the new 'gesprek'
+                     $.ajax({
+                         type: "POST",
+                         data: postData,
+                         url: "Exporteren.php",
+                         success: function (data) {
+                             console.log($('#ExportModal.modal-body'));
+                             $('#exportResult').html(data);
+                         }
+                     });
+                 })
+                 
+                 $("#saveAfspraak").click(function () {
+                     var OV = $("#Sel").val();
+                     var DateTimePicker = $('#datetimepicker').val();
+                     postData = {
+                         'Select_Student': OV,
+                         'datetimepicker': DateTimePicker
+                     }
+ 
+                     // ajax request to post the new 'gesprek'
+                     $.ajax({
+                         type: "POST",
+                         data: postData,
+                         url: "NewAfspraak.php",
+                         success: function (data) {
+                             $('#AfsprakenModal').modal('hide');
+                         }
+                     });
+                 })
+             });
         </script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <sc ript src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script>
-            $(function () {
+             $( $(function () {function () {
                 $("#datepicker").datepicker();
             });
         </script>
