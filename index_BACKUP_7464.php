@@ -280,12 +280,107 @@ GetTop5();
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="col-md-12"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <dt>Informatie</dt>
+        </div>
+        <div class="panel-body">
+            <table id="myTable" class="tablesorter table" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th style="cursor: pointer;">ID</th>
+                    <th style="cursor: pointer;">OV</th>
+                    <th style="cursor: pointer;">Voornaam</th>
+                    <th style="cursor: pointer;">Tussen</th>
+                    <th style="cursor: pointer;">Achternaam</th>
+                    <th style="cursor: pointer;">Jaar</th>
+                    <th style="cursor: pointer;">Voortgang</th>
+                    <th style="cursor: pointer;">Email</th>
+                    <th style="cursor: pointer;">Foto</th>
+                </tr>
+                </thead>
+                <tbody id="studentList">
+                </tbody>
+            </table>
+            <div class="col-md-12">
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+<script src="https://use.fontawesome.com/95866f8d45.js"></script>
+<script src="Sorttable.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //table sorter functie
+        //if ($('#Sel').val() === "" || $('#Sel').val() === "0")
+        // get selection
+        $.ajax({
+            type: "POST",
+            url: "getStudent.php",
+            success: function (data) {
+                $("#myTable").find("tbody").html(data);
+                $("#myTable").tablesorter();
+            }
+        });
+
+        $('#Sel').change(function () {
+            //get the OV from the selected student
+            var SelectedValue = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "getStudent.php",
+                data: {Select_Student: SelectedValue},
+                success: function (data) {
+//                    alert('This was sent back: ' + SelectedValue);
+                    //$("#myTable").find("tbody").html(data);
+                }
+            });
+            // disable button when student not selected
+            $("#newGesprek").prop('disabled', SelectedValue === "0");
+            $("#Exporteren").prop('disabled', SelectedValue === "0");
+        });
+
+        // new gesprek
+        $("#newGesprek").click(function() {
+            var naamStudent = $("#Sel option:selected").html();
+            var OV = $("#Sel").val();
+            $("#GesprekModalTitle").html("Gesprek tovoegen - " + naamStudent + " / " + OV);
+            $('#GesprekModal').modal('show');
+        });
+
+        $("#saveGesprek").click(function() {
+            var OV = $("#Sel").val();
+            var gesprek = $("#formPostDescription").val();
+            postData = {
+                'Select_Student': OV,
+                'formPostDescription': gesprek,
+            }
+
+            // ajax request to post the new 'gesprek'
+            $.ajax({
+                type: "POST",
+                data: postData,
+                url: "NewGesprek.php",
+                success: function (data) {
+                    $('#GesprekModal').modal('hide');
+                }
+=======
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
         <script src="https://use.fontawesome.com/95866f8d45.js"></script>
         <script src="Sorttable.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+        <script type="text/javascript" src="datetimepicker-master/js/jquery.tablesorter.js"></script>
         <script src="./jquery.js"></script>
         <script src="datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
         <script>jQuery('#datetimepicker').datetimepicker();</script>
@@ -294,7 +389,6 @@ GetTop5();
             $(document).ready(function () {
                 //table sorter functie
                 //if ($('#Sel').val() === "" || $('#Sel').val() === "0")
-                $('#myTable').tablesorter();
                 // get selection
                 $.ajax({
                     type: "POST",
@@ -314,7 +408,7 @@ GetTop5();
                         data: {Select_Student: SelectedValue},
                         success: function (data) {
                             //                    alert('This was sent back: ' + SelectedValue);
-                            //$("#myTable").find("tbody").html(data);
+                            $("#myTable").find("tbody").html(data);
                         }
                     });
                     // disable button when student not selected
@@ -369,7 +463,7 @@ GetTop5();
                     var OV = $("#Sel").val();
                     postData = {
                         'Select_Student': OV,
-                        'datetimepicker': null
+                        'datetimepicker': ,
                     }
 
                     // ajax request to post the new 'gesprek'
@@ -382,6 +476,7 @@ GetTop5();
                         }
                     });
                 })
+>>>>>>> origin/master
             });
         </script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

@@ -26,6 +26,38 @@ function GetCurDate() {
     }
 }
 
+//function GetStudentsOnOV()
+//{
+//    global $SelectedValue;
+//    global $conStr;
+//
+//
+//    if ($SelectedValue == "" || $SelectedValue == "0") {
+//        //geen sorteren gewoon alles selecteren
+//        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
+//    } else if ($SelectedValue != "") {
+//        //sorteer op ov nummer
+//        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
+//    }
+//    $resultPanelTitle = $conStr->query($sqlPaneltitle);
+//    if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
+//
+//        while ($row = $resultPanelTitle->fetch_assoc()) {
+//            echo '<tr>' .
+//                '<td>' . $row["ID"] . "</td>" .
+//                '<td>' . $row["OV"] . "</td>" .
+//                '<td>' . $row["Voornaam"] . "</td>" .
+//                '<td>' . $row["Tussen"] . "</td>" .
+//                '<td>' . $row["Achternaam"] . "</td>" .
+//                '<td>' . $row["Klas"] . "</td>" .
+//                '<td>stuff</td>' .
+//                '<td>' . $row["Email"] . '</td>' .
+//                '<td>stuff</td>' .
+//                '<td>stuff</td>' .
+//                '</tr>';
+//        }
+//    }
+//}
 
 function GetTop5() {
     global $conStr;
@@ -285,7 +317,7 @@ GetTop5();
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
         <script src="https://use.fontawesome.com/95866f8d45.js"></script>
         <script src="Sorttable.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+        <script type="text/javascript" src="datetimepicker-master/js/jquery.tablesorter.js"></script>
         <script src="./jquery.js"></script>
         <script src="datetimepicker-master/build/jquery.datetimepicker.full.js"></script>
         <script>jQuery('#datetimepicker').datetimepicker();</script>
@@ -294,7 +326,6 @@ GetTop5();
             $(document).ready(function () {
                 //table sorter functie
                 //if ($('#Sel').val() === "" || $('#Sel').val() === "0")
-                $('#myTable').tablesorter();
                 // get selection
                 $.ajax({
                     type: "POST",
@@ -314,7 +345,7 @@ GetTop5();
                         data: {Select_Student: SelectedValue},
                         success: function (data) {
                             //                    alert('This was sent back: ' + SelectedValue);
-                            //$("#myTable").find("tbody").html(data);
+                            $("#myTable").find("tbody").html(data);
                         }
                     });
                     // disable button when student not selected
@@ -369,7 +400,7 @@ GetTop5();
                     var OV = $("#Sel").val();
                     postData = {
                         'Select_Student': OV,
-                        'datetimepicker': null
+                        'datetimepicker': ,
                     }
 
                     // ajax request to post the new 'gesprek'
