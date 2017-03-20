@@ -27,38 +27,6 @@ function GetCurDate()
     }
 }
 
-//function GetStudentsOnOV()
-//{
-//    global $SelectedValue;
-//    global $conStr;
-//
-//
-//    if ($SelectedValue == "" || $SelectedValue == "0") {
-//        //geen sorteren gewoon alles selecteren
-//        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
-//    } else if ($SelectedValue != "") {
-//        //sorteer op ov nummer
-//        $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
-//    }
-//    $resultPanelTitle = $conStr->query($sqlPaneltitle);
-//    if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
-//
-//        while ($row = $resultPanelTitle->fetch_assoc()) {
-//            echo '<tr>' .
-//                '<td>' . $row["ID"] . "</td>" .
-//                '<td>' . $row["OV"] . "</td>" .
-//                '<td>' . $row["Voornaam"] . "</td>" .
-//                '<td>' . $row["Tussen"] . "</td>" .
-//                '<td>' . $row["Achternaam"] . "</td>" .
-//                '<td>' . $row["Klas"] . "</td>" .
-//                '<td>stuff</td>' .
-//                '<td>' . $row["Email"] . '</td>' .
-//                '<td>stuff</td>' .
-//                '<td>stuff</td>' .
-//                '</tr>';
-//        }
-//    }
-//}
 
 function GetTop5()
 {
@@ -347,7 +315,7 @@ function NameOv()
                 data: {Select_Student: SelectedValue},
                 success: function (data) {
 //                    alert('This was sent back: ' + SelectedValue);
-                    $("#myTable").find("tbody").html(data);
+                    //$("#myTable").find("tbody").html(data);
                 }
             });
             // disable button when student not selected

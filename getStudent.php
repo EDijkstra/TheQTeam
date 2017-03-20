@@ -22,15 +22,9 @@ if (!($conStr)) {
 } else {
 
 }
-$SelectedValue = filter_input(INPUT_POST, 'Select_Student');
 
-if ($SelectedValue == "" || $SelectedValue == "0") {
-    //geen sorteren gewoon alles selecteren
-    $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
-} else if ($SelectedValue != "") {
-    //sorteer op ov nummer
-    $sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo WHERE OV =" . $SelectedValue;
-}
+$sqlPaneltitle = "SELECT ID, OV, Voornaam, Tussen, Achternaam, Klas, Email FROM studentinfo";
+
 $resultPanelTitle = $conStr->query($sqlPaneltitle);
 if ($resultPanelTitle && $resultPanelTitle->num_rows > 0) {
 
