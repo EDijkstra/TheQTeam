@@ -21,14 +21,14 @@ if (!($conStr)) {
 } else {
 
 }
-$Datum = date("Y-m-d h:i:s");
 
 $SelectedValue = filter_input(INPUT_POST, 'Select_Student');
+$DateTimePicker = $_POST['datetimepicker'];
 
 // Putting data from form into variables to be manipulated
 
 $sqlAfspraak = "INSERT INTO gesprekken (OV, Datum) "
-    . "VALUES ('$SelectedValue', '$Datum')";
+    . "VALUES ('$SelectedValue', '$DateTimePicker')";
 
 $conStr->query($sqlExport);
 echo 'nice :+1:';

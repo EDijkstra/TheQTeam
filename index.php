@@ -91,6 +91,10 @@ function NameOv() {
         }
     }
 }
+
+function CreateAppointment(){
+    $DateTimePicker = $_POST['datetimepicker'];
+}
 ?>
 
 
@@ -217,7 +221,7 @@ PopulateDDL();
                                 </button>
                                 <!--Afspraken button-->
                                 <button type="button" class="btn btn-default" name="Afspraken" data-toggle="modal"
-                                        data-target="#Afspraken"><i class="fa fa-sitemap" aria-hidden="true"></i> Afspraken
+                                        data-target="#AfsprakenModal"><i class="fa fa-sitemap" aria-hidden="true"></i> Afspraken
                                 </button>
                             </form>
                         </div>
@@ -365,11 +369,13 @@ GetTop5();
                         }
                     });
                 })
+                
                 $("#saveAfspraak").click(function () {
                     var OV = $("#Sel").val();
+                    var DateTimePicker = $('#datetimepicker').val();
                     postData = {
                         'Select_Student': OV,
-                        'datetimepicker': null
+                        'datetimepicker': DateTimePicker
                     }
 
                     // ajax request to post the new 'gesprek'
